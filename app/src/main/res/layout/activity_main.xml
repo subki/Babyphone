@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    "android babyalarm" makes your android smartphone monitor sounds (e.g.
+    of your sleeping baby) and calls a given phone number in case the
+    loudness exceeds a certain level.
+
+    Copyright (C) 2010	der_hannes@users.sourceforge.net
+
+    This file is part of "android babyalarm".
+
+    "android babyalarm" is free software: you can redistribute
+    it and/or modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    "android babyalarm" is	distributed in the hope that it will be useful,
+    but WITHOUT ANY	WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+    for more details.
+
+    You can find a copy of the GNU General PublicLicense in the source code
+    of "android babyalarm" at
+    <http://babyalarm.git.sourceforge.net/git/gitweb.cgi?p=babyalarm/babyalarm;a=blob_plain;f=gpl.txt;hb=HEAD>.
+    Or visit <http://www.gnu.org/licenses/>.
+-->
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/TextViewCallStaticText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number \nto call: "
+        android:layout_alignParentLeft="true"></TextView>
+
+    <Button
+        android:id="@+id/ButtonPhoneTestCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Call"
+        android:layout_alignParentRight="true"></Button>
+
+    <EditText
+        android:id="@+id/EditTextPhoneNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="150dip"
+        android:inputType="phone"
+        android:lines="1"
+        android:imeOptions="actionDone"
+        android:text=""
+        android:layout_toRightOf="@id/TextViewCallStaticText"
+        android:layout_toLeftOf="@id/ButtonPhoneTestCall"></EditText>
+
+    <CheckBox
+        android:id="@+id/CheckBoxDoCall"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:layout_below="@id/EditTextPhoneNumber"
+        android:layout_alignParentLeft="true"></CheckBox>
+
+
+    <TextView
+        android:id="@+id/TextViewLoudnessLimitStatic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm Limit: "
+        android:layout_below="@id/CheckBoxDoCall"
+        android:layout_alignParentLeft="true"></TextView>
+
+    <TextView
+        android:id="@+id/TextViewLoudnessLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@id/CheckBoxDoCall"
+        android:layout_toRightOf="@id/TextViewLoudnessLimitStatic"></TextView>
+
+    <Button
+        android:id="@+id/ButtonLoudnessLimitUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+50"
+        android:layout_below="@id/CheckBoxDoCall"
+        android:layout_alignParentRight="true"></Button>
+
+    <Button
+        android:id="@+id/ButtonLoudnessLimitDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limit -50"
+        android:layout_below="@id/CheckBoxDoCall"
+        android:layout_toLeftOf="@id/ButtonLoudnessLimitUp"></Button>
+
+
+
+
+    <TextView
+        android:id="@+id/TextViewLoudnessCurrentStatic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Loudness: "
+        android:layout_below="@id/TextViewLoudnessLimitStatic"
+        android:layout_alignParentLeft="true"></TextView>
+
+    <TextView
+        android:id="@+id/TextViewLoudnessCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TextViewLoudnessLimit"
+        android:layout_toRightOf="@id/TextViewLoudnessCurrentStatic"></TextView>
+
+    <!-- status bar -->
+    <Button
+        android:id="@+id/ButtonStatusIndicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:layout_below="@id/TextViewLoudnessCurrentStatic"></Button>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/ButtonStatusIndicator"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/ButtonPhoneTestCall"
+        android:layout_alignEnd="@+id/ButtonPhoneTestCall"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/TextViewLoudnessLimitStatic"
+            android:layout_toEndOf="@+id/TextViewLoudnessLimitStatic">
+
+            <TextView
+                android:id="@+id/TextViewLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log"
+                android:minLines="2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"></TextView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
